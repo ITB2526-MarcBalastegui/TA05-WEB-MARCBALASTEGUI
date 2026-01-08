@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacte</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <!-- Botó menú hamburguesa -->
+  <button class="hamburger" aria-label="Obrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Barra de navegació superior -->
+  <nav>
+    <header class="site-header">
+      <img src="logo.png" alt="Logo del portafolis" class="logo" />
+      <h1>Portafolis</h1>
+    </header>
+  </nav>
+
+  <!-- Contenidor principal: menú lateral + contingut -->
+  <div class="main-wrapper">
+    <!-- Menú lateral -->
+    <section class="menu-lateral">
+      <header><h2>Menú</h2></header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inici</a></li>
+          <li><a href="contacte.html" aria-current="page">Contacte</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Contingut principal -->
+    <main>
+      <section class="card">
+        <header><h2>Formulari de contacte</h2></header>
+        <form class="contacte-form">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="missatge">Missatge</label>
+          <textarea id="missatge" name="missatge" rows="6" placeholder="Escriu el teu missatge..." required></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Peu de pàgina -->
+  <footer>
+    <p>
+      Dissenyat per Marc amb ajuda de 
+      <img src="ff.png" alt="Logo de Copilot" class="footer-logo" /> Copilot
+    </p>
+  </footer>
+
+  <!-- Script per al menú hamburguesa -->
+  <script src="script.js"></script>
+</body>
+</html>
