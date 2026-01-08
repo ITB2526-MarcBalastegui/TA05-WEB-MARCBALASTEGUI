@@ -7,7 +7,15 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <!-- Capçalera amb logo i títol fix -->
+
+  <!-- Botó menú hamburguesa -->
+  <button class="hamburger" aria-label="Obrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Barra superior amb logo i títol -->
   <nav>
     <header class="site-header">
       <img src="logo.png" alt="Logo del portafolis" class="logo" />
@@ -22,8 +30,9 @@
       <header><h2>Menú</h2></header>
       <nav>
         <ul>
-          <li><a href="index.html">Inici</a></li>
-          <li><a href="contacte.html">Contacte</a></li>
+<li><a href="index.html" aria-current="page">Inici</a></li>
+<li><a href="contacte.html">Contacte</a></li>
+
         </ul>
       </nav>
     </section>
@@ -54,3 +63,7 @@
   </p>
 </footer>
 
+  <!-- Script per al menú hamburguesa -->
+  <script src="script.js"></script>
+</body>
+</html>

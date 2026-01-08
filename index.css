@@ -120,34 +120,46 @@ aside {
   margin-bottom: 2rem;
   align-items: flex-start;
   background-color: #fff;
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
 
 .projecte-img {
-  width: 240px;
-  height: auto;
-  max-height: 160px;
-  object-fit: cover;
+  width: 200px;    /* mida controlada */
+  height: 140px;    /* alçada fixa */
+  object-fit: cover;   /* retalla sense deformar */
   border-radius: 4px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0;      /* evita que creixi amb el hover */
+}
+  /* Animacions */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+
+  /* Evita que s’expandeixi cap al menú */
+  transform-origin: left center;
+
+  /* Espai de seguretat perquè no xoqui amb el menú */
+  margin-left: 1rem;
 }
 
-.projecte-contingut {
-  flex: 1;
+/* Quan apareix en pantalla */
+.projecte.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.projecte-contingut header h2 {
-  margin-top: 0;
-  font-size: 1.4rem;
+/* Efecte hover controlat */
+.projecte.hovered {
+  transform: scale(1.015); /* expansió suau */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-.projecte-contingut p,
-.projecte-contingut aside,
-.projecte-contingut footer {
-  margin: 0.5rem 0;
+/* Quan el menú està obert, desplacem el contingut una mica més */
+body.menu-visible .main-wrapper {
+  margin-left: 210px;
 }
+
 
 /* Peu de pàgina */
 body > footer {
@@ -342,4 +354,23 @@ body.menu-visible .main-wrapper {
 
 .contacte-form button:hover {
   background-color: #333;
+}
+
+/* Estado inicial para animación de entrada */
+.projecte {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+}
+
+/* Cuando aparece en pantalla */
+.projecte.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efecto al pasar el ratón */
+.projecte.hovered {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
