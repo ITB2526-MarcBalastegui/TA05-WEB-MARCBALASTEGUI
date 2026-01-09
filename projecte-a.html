@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Detall — Projecte A</title>
+  <title>Detall — QuantumShield IDS</title>
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
@@ -15,7 +15,7 @@
     <span></span>
   </button>
 
-  <!-- Barra superior amb logo i títol -->
+  <!-- Barra superior -->
   <nav>
     <header class="site-header">
       <img src="logo.png" alt="Logo del portafolis" class="logo" />
@@ -23,47 +23,107 @@
     </header>
   </nav>
 
-  <!-- Contenidor principal: menú lateral + contingut -->
+  <!-- BANNER DEL PROJECTE -->
+<section class="project-banner">
+  <img src="banners/banner-1.jpg" alt="Banner del projecte" class="banner-img">
+  <div class="banner-overlay"></div>
+
+  <div class="banner-content">
+    <img src="logo12.png" alt="Logo del projecte" class="banner-logo">
+    <h1>QuantumShield IDS</h1>
+  </div>
+</section>
+
+
+
+  <!-- Contenidor principal -->
   <div class="main-wrapper">
+
     <!-- Menú lateral -->
     <section class="menu-lateral">
       <header><h2>Menú</h2></header>
       <nav>
         <ul>
-<li><a href="index.html" aria-current="page">Inici</a></li>
-<li><a href="contacte.html">Contacte</a></li>
-
+          <li><a href="index.html">Inici</a></li>
+          <li><a href="contacte.html">Contacte</a></li>
         </ul>
       </nav>
     </section>
 
-    <!-- Contingut principal amb marges -->
+    <!-- CONTINGUT DEL PROJECTE -->
     <main>
-      <article>
-        <header><h2>QuantumShield IDS</h2></header>
-        <p>
-          Sistema de detección de intrusiones que usa algoritmos cuánticos para acelerar la correlación de eventos y reducir falsos positivos en tiempo real.
-        </p>
-        <aside>
-          <h3>Tecnologies</h3>
-          <p>HTML5 semàntic, CSS modular, JS vanilla.</p>
-        </aside>
-        <footer>
-          <a href="index.html#projecte1">Torna a la pàgina principal</a>
-        </footer>
-      </article>
+
+      <!-- BLOC 1 -->
+      <section class="projecte-bloc">
+        <img src="1.png" alt="Imatge del projecte" class="projecte-detall-img">
+
+        <div class="projecte-detall-text">
+          <h2>Overview</h2>
+          <p>
+            QuantumShield IDS is an intrusion detection system that leverages quantum‑inspired algorithms to accelerate event correlation and dramatically reduce false positives.
+          </p>
+
+          <h3>Technologies</h3>
+          <p>
+            Quantum‑inspired correlation engine, real‑time event processing, adaptive anomaly detection.
+          </p>
+        </div>
+      </section>
+
+      <!-- BLOC 2 -->
+      <section class="projecte-bloc invertit">
+        <img src="2.png" alt="Imatge del projecte" class="projecte-detall-img">
+
+        <div class="projecte-detall-text">
+          <h2>System Architecture</h2>
+          <p>
+            The system is built around a distributed analysis engine capable of correlating thousands of events simultaneously.
+          </p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>Parallel event correlation</li>
+            <li>Reduction of false positives</li>
+            <li>Real‑time monitoring</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BLOC 3 -->
+      <section class="projecte-bloc">
+        <img src="3.png" alt="Imatge del projecte" class="projecte-detall-img">
+
+        <div class="projecte-detall-text">
+          <h2>Performance & Optimization</h2>
+          <p>
+            QuantumShield IDS integrates memory‑efficient pipelines and multi‑stage processing to ensure stable performance in high‑traffic environments.
+          </p>
+
+          <h3>Enhancements</h3>
+          <ul>
+            <li>Parallel processing pipelines</li>
+            <li>Latency reduction</li>
+            <li>Optimized memory usage</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Enllaç de retorn -->
+      <footer class="projecte-retorn">
+        <a href="index.html#projecte1">Torna a la pàgina principal</a>
+      </footer>
+
     </main>
   </div>
 
-<!-- Peu de pàgina -->
-<footer>
-  <p>
-    Dissenyat per Marc amb ajuda de 
-    <img src="ff.png" alt="Logo de Copilot" class="footer-logo" /> Copilot
-  </p>
-</footer>
+  <!-- Peu de pàgina -->
+  <footer>
+    <p>
+      Dissenyat per Marc amb ajuda de
+      <img src="ff.png" alt="Logo de Copilot" class="footer-logo" /> Copilot
+    </p>
+  </footer>
 
-  <!-- Script per al menú hamburguesa -->
   <script src="script.js"></script>
 </body>
 </html>

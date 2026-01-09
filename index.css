@@ -1,4 +1,6 @@
-/* Importar la font personalitzada */
+/* ------------------------------ */
+/* FONT PERSONALITZADA            */
+/* ------------------------------ */
 @font-face {
   font-family: "ZTNature";
   src: url("fonts/ZTNature-Medium.ttf") format("truetype");
@@ -6,7 +8,9 @@
   font-style: normal;
 }
 
-/* Estils generals */
+/* ------------------------------ */
+/* ESTILS GENERALS                */
+/* ------------------------------ */
 html {
   height: 100%;
 }
@@ -22,30 +26,34 @@ body {
   min-height: 100vh;
 }
 
-/* Contenidor principal: menú lateral + contingut */
+/* ------------------------------ */
+/* LAYOUT GENERAL                 */
+/* ------------------------------ */
 .main-wrapper {
   display: flex;
   flex: 1;
+  transition: margin-left 0.3s ease;
 }
 
-/* Header amb logo i títol */
+/* ------------------------------ */
+/* BARRA SUPERIOR                 */
+/* ------------------------------ */
+nav {
+  background-color: #000;
+  color: #fff;
+  padding: 0.75rem 1rem;
+}
+
 .site-header {
   display: flex;
   align-items: center;
-  justify-content: center; /* centra logo + text */
-  gap: 0.75rem; /* espai entre logo i text */
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .site-header .logo {
-  height: 40px; /* ajusta la mida del logo */
+  height: 40px;
   width: auto;
-}
-
-/* Barra superior */
-nav {
-  background-color: #000; /* Negre */
-  color: #fff;
-  padding: 0.75rem 1rem;
 }
 
 nav header h1 {
@@ -53,17 +61,27 @@ nav header h1 {
   font-size: 1.8rem;
 }
 
-/* Menú lateral */
+/* ------------------------------ */
+/* MENÚ LATERAL                   */
+/* ------------------------------ */
 .menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -220px;
+  width: 200px;
+  height: 100%;
   background-color: #111;
   padding: 1rem;
-  width: 200px;
-  min-height: calc(100vh - 70px); /* resta l’alçada de la barra superior */
   transition: left 0.3s ease;
+  z-index: 999;
+}
+
+.menu-lateral.active {
+  left: 0;
 }
 
 .menu-lateral header h2 {
-  margin-top: 0;
+  margin-top: 3rem;
   color: #fff;
 }
 
@@ -87,106 +105,14 @@ nav header h1 {
   border-bottom: 2px solid #ffcc00;
 }
 
-/* Contingut principal */
-main {
-  flex: 1;
-  padding: 1.5rem;
-}
-
-main section,
-main article {
-  background-color: #fff;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-main header h2 {
-  margin-top: 0;
-  color: #000;
-}
-
-aside {
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 0.5rem;
-}
-
-/* Projectes */
-.projecte {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  align-items: flex-start;
-  background-color: #fff;
-  padding: 1rem 1.25rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-
-.projecte-img {
-  width: 200px;    /* mida controlada */
-  height: 140px;    /* alçada fixa */
-  object-fit: cover;   /* retalla sense deformar */
-  border-radius: 4px;
-  flex-shrink: 0;      /* evita que creixi amb el hover */
-}
-  /* Animacions */
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
-
-  /* Evita que s’expandeixi cap al menú */
-  transform-origin: left center;
-
-  /* Espai de seguretat perquè no xoqui amb el menú */
-  margin-left: 1rem;
-}
-
-/* Quan apareix en pantalla */
-.projecte.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Efecte hover controlat */
-.projecte.hovered {
-  transform: scale(1.015); /* expansió suau */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-/* Quan el menú està obert, desplacem el contingut una mica més */
+/* Quan el menú està obert */
 body.menu-visible .main-wrapper {
-  margin-left: 210px;
+  margin-left: 200px;
 }
 
-
-/* Peu de pàgina */
-body > footer {
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  margin-top: auto;
-}
-
-body > footer p {
-  margin: 0.25rem 0; /* separació vertical */
-}
-
-.footer-logo {
-  height: 24px;
-  width: auto;
-  vertical-align: middle;
-}
-
-.footer-copy {
-  font-size: 0.85rem; /* lletra més petita */
-  color: #aaa;        /* gris clar per diferenciar */
-}
-
-
-/* Botó hamburguesa */
+/* ------------------------------ */
+/* BOTÓ HAMBURGUESA               */
+/* ------------------------------ */
 .hamburger {
   position: absolute;
   top: 1rem;
@@ -211,83 +137,196 @@ body > footer p {
   background-color: #fff;
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  transform-origin: center;
 }
-
-/* Animació quan està actiu */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(2px, 2px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(2px, -2px);
-}
-
-
-/* Animació quan està actiu */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
 
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
+
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
 
-/* Menú lateral ocult per defecte (per animació) */
-.menu-lateral {
-  position: fixed;
-  top: 0;
-  left: -220px;
-  width: 200px;
-  height: 100%;
-  background-color: #111;
-  padding: 1rem;
-  transition: left 0.3s ease;
-  z-index: 999;
-}
-.menu-lateral header {
-  margin-top: 3rem;
-}
-
-/* Quan està actiu */
-.menu-lateral.active {
-  left: 0;
-}
-
-/* Contenidor principal */
-.main-wrapper {
-  display: flex;
+/* ------------------------------ */
+/* CONTINGUT PRINCIPAL            */
+/* ------------------------------ */
+main {
   flex: 1;
-  transition: margin-left 0.3s ease; /* 👈 transició sempre activa */
+  padding: 1.5rem;
 }
 
-/* Quan el menú està actiu, desplacem el contingut */
-body.menu-visible .main-wrapper {
-  margin-left: 200px; /* mateix ample que el menú */
+main section,
+main article {
+  background-color: #fff;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+main header h2 {
+  margin-top: 0;
+  color: #000;
+}
+
+/* ------------------------------ */
+/* PROJECTES (PÀGINA PRINCIPAL)   */
+/* ------------------------------ */
+.projecte {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-left: 1rem;
+
+  /* Animació entrada */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+  transform-origin: left center;
+}
+
+.projecte.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projecte.hovered {
+  transform: scale(1.015);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* Imatge dels projectes */
+.projecte-img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* ------------------------------ */
+/* PÀGINA DE DETALL DEL PROJECTE  */
+/* ------------------------------ */
+/* BLOC DEL PROJECTE — FORMAT UNIFICAT */
+.projecte-bloc {
+  display: flex;
+  align-items: stretch;     /* 👈 fa que la imatge i el text tinguin la mateixa alçada */
+  gap: 2rem;
+  background: #fff;
+  padding: 0;               /* 👈 la imatge toca el marge del rectangle */
+  border-radius: 10px;
+  overflow: hidden;         /* 👈 evita que la imatge surti del rectangle */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  margin-bottom: 3rem;
+  min-height: 300px;        /* 👈 alçada fixa per a tots els blocs */
+}
+
+/* Alternança: imatge a la dreta */
+.projecte-bloc.invertit {
+  flex-direction: row-reverse;
+}
+
+/* IMATGE — SEMPRE IGUAL, SEMPRE A MIDA */
+.projecte-detall-img {
+  width: 40%;               /* 👈 totes les imatges mateixa amplada */
+  height: 100%;             /* 👈 ocupa tota l’alçada del bloc */
+  object-fit: cover;        /* 👈 retalla sense deformar */
+  display: block;
+}
+
+/* TEXT — SEMPRE IGUAL */
+.projecte-detall-text {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* IMATGE A MIDA COMPLETA */
+.projecte-detall-img {
+  width: 45%;              /* ocupa gairebé la meitat del bloc */
+  height: 100%;            /* ocupa tota l’alçada del rectangle */
+  object-fit: cover;       /* retalla sense deformar */
+  display: block;
+}
+
+/* TEXT DEL PROJECTE */
+.projecte-detall-text {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projecte-detall-text h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.projecte-detall-text p,
+.projecte-detall-text ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .projecte-bloc,
+  .projecte-bloc.invertit {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .projecte-detall-img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .projecte-detall-text {
+    padding: 1.5rem;
+    text-align: center;
+  }
 }
 
 
+/* ------------------------------ */
+/* PEU DE PÀGINA                  */
+/* ------------------------------ */
+body > footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
 
-/* Responsive */
+.footer-logo {
+  height: 24px;
+  width: auto;
+  vertical-align: middle;
+  margin-top: 2px; /* 👈 baixa la imatge lleugerament */
+}
+
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* ------------------------------ */
+/* RESPONSIVE                     */
+/* ------------------------------ */
 @media (max-width: 768px) {
   .main-wrapper {
     flex-direction: column;
@@ -296,81 +335,230 @@ body.menu-visible .main-wrapper {
   .menu-lateral {
     width: 100%;
     min-height: auto;
-    margin-bottom: 1rem;
-    position: relative; /* en mòbil, menú normal */
+    position: relative;
     left: 0;
   }
 
-  main {
-    padding: 1rem;
+  .projecte-bloc {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .projecte-detall-img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
   }
 }
-.contacte-form {
+/* ANIMACIÓ D’ENTRADA DELS BLOCS */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projecte-bloc {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+/* Retard escalonat */
+.projecte-bloc:nth-child(1) { animation-delay: 0.1s; }
+.projecte-bloc:nth-child(2) { animation-delay: 0.3s; }
+.projecte-bloc:nth-child(3) { animation-delay: 0.5s; }
+
+/* ANIMACIÓ DE LA IMATGE (ZOOM SUAU) */
+.projecte-detall-img {
+  transition: transform 0.4s ease;
+}
+
+.projecte-bloc:hover .projecte-detall-img {
+  transform: scale(1.05);
+}
+.projecte-detall-text {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.projecte-bloc:hover .projecte-detall-text {
+  transform: translateX(5px);
+  opacity: 0.95;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .projecte-bloc,
+  .projecte-bloc.invertit {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .projecte-detall-img {
+    width: 100%;
+    height: 220px;
+  }
+}
+/* BANNER DEL PROJECTE AMB IMATGE HTML */
+.project-banner {
+  position: relative;
+  width: 100%;
+  height: 280px; /* pots pujar-ho si vols més impacte */
+  overflow: hidden;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imatge del banner */
+.banner-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fa que la imatge ocupi tot el banner */
+  z-index: 1;
+}
+
+/* Capa fosca */
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.80); /* foscor ajustable */
+  z-index: 2;
+}
+
+/* Títol */
+.project-banner h1 {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+/* CONTENIDOR DEL TÍTOL + LOGO */
+.banner-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* espai entre logo i títol */
+}
+
+/* LOGO DEL BANNER */
+.banner-logo {
+  height: 60px;        /* ajusta la mida del logo */
+  width: auto;
+  filter: brightness(0) invert(1); /* opcional: fa el logo blanc si és fosc */
+}
+
+/* TÍTOL */
+.project-banner h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+/* TARGETA HORIZONTAL */
+.project-card {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 160px; /* alçada uniforme */
+  margin-bottom: 2rem; /* 👈 marge entre targetes */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+
+  opacity: 0; /* per animació */
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+/* Retard escalonat */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+.project-card:nth-child(7) { animation-delay: 0.7s; }
+.project-card:nth-child(8) { animation-delay: 0.8s; }
+.project-card:nth-child(9) { animation-delay: 0.9s; }
+.project-card:nth-child(10) { animation-delay: 1s; }
+
+/* ANIMACIÓ */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* IMATGE PETITA A L’ESQUERRA */
+.project-card-img {
+  width: 180px;      /* amplada fixa */
+  height: 100%;      /* ocupa tota l’alçada */
+  object-fit: cover; /* cobreix sense deformar */
+  display: block;
+  transition: transform 0.4s ease; /* animació hover */
+}
+
+/* ZOOM SUAU EN HOVER */
+.project-card:hover .project-card-img {
+  transform: scale(1.05);
+}
+
+/* CONTINGUT A LA DRETA */
+.card-content {
+  flex: 1;
+  padding: 1.2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  max-width: 600px;
-  margin: 0 auto;
+  justify-content: center;
 }
 
-.contacte-form label {
-  font-weight: bold;
-  color: #000;
-  font-size: 1rem;
+.card-content h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
 }
 
-.contacte-form input,
-.contacte-form textarea {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: 1rem;
-  background-color: #fefefe;
+.card-content p {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
 }
 
-.contacte-form input:focus,
-.contacte-form textarea:focus {
-  border-color: #000;
-  outline: none;
+.card-content aside,
+.card-content footer {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+/* L’enllaç gegant que envolta la targeta */
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
-.contacte-form button {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  align-self: flex-start;
-  transition: background-color 0.3s ease;
-}
-
-.contacte-form button:hover {
-  background-color: #333;
-}
-
-/* Estado inicial para animación de entrada */
-.projecte {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
-}
-
-/* Cuando aparece en pantalla */
-.projecte.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Efecto al pasar el ratón */
-.projecte.hovered {
-  transform: scale(1.03);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+/* Evitar que canviï color en hover */
+.project-card-link:hover {
+  text-decoration: none;
+  color: inherit;
 }
