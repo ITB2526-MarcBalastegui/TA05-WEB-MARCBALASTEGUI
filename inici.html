@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inici - Portafolis</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <button class="hamburger" aria-label="Obrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <section class="menu-lateral">
+    <header>
+      <h2>Menú</h2>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="inici.html" class="active">Inici</a></li>
+        <li><a href="index.html">Projectes</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <nav class="top-nav">
+    <header class="site-header">
+      <img src="logo.png" alt="Logo" class="logo" />
+      <h1>Portafolis</h1>
+    </header>
+  </nav>
+
+  <div class="main-wrapper">
+    <main>
+
+      <section class="intro-section">
+        <h1>Welcome to Marc's portfolio</h1>
+        <p class="intro-subtitle">SysAdmin & Cybersecurity Enthusiast</p>
+        <p class="intro-text">
+          Welcome to my professional portfolio. Here you will find some
+            projects I made related to cybersecurity
+        </p>
+        <div class="intro-actions">
+          <a href="contacte.html" class="btn-primary">Contact</a>
+          <a href="index.html" class="btn-secondary">See projects</a>
+        </div>
+      </section>
+
+      <h2 class="featured-title">Star Projects</h2>
+
+      <a href="projecte-a.html" class="featured-card">
+        <img src="1.jpg" alt="QuantumShield IDS" class="featured-img">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <h3>Basic Firewall Deployment with pfSense</h3>
+          <p>This project teaches the fundamentals of network perimeter security and how firewalls enforce organizational policies.</p>
+        </div>
+      </a>
+
+      <a href="projecte-b.html" class="featured-card">
+        <img src="2.jpg" alt="Adaptive Mesh ZeroTrust Fabric" class="featured-img">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <h3>Network Segmentation Using VLANs</h3>
+          <p>Students learn how segmentation reduces attack surfaces and prevents unauthorized lateral movement.</p>
+        </div>
+      </a>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>
+      Made by Marc with help from
+      <img src="ff.png" alt="Logo de Copilot" class="footer-logo" /> Copilot
+    </p>
+  </footer>
+
+<div class="menu-overlay"></div>
+  <script src="script.js"></script>
+</body>
+</html>

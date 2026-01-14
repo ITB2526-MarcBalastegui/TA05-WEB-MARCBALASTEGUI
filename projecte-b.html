@@ -3,55 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Detall — Projecte B</title>
+  <title>Detall — Network Segmentation</title>
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <!-- Capçalera amb logo i títol fix -->
-  <nav>
+
+  <button class="hamburger" aria-label="Obrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <section class="menu-lateral">
+    <header><h2>Menú</h2></header>
+    <nav>
+      <ul>
+        <li><a href="inici.html">Inici</a></li>
+        <li><a href="index.html" class="active">Projectes</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <nav class="top-nav">
     <header class="site-header">
-      <img src="logo.png" alt="Logo del portafolis" class="logo" />
+      <img src="logo.png" alt="Logo" class="logo" />
       <h1>Portafolis</h1>
     </header>
   </nav>
 
-  <!-- Contenidor principal: menú lateral + contingut -->
-  <div class="main-wrapper">
-    <!-- Menú lateral -->
-    <section class="menu-lateral">
-      <header><h2>Menú</h2></header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Inici</a></li>
-          <li><a href="contacte.html">Contacte</a></li>
-        </ul>
-      </nav>
-    </section>
+  <section class="project-banner">
+    <img src="2.jpg" alt="Banner VLANs" class="banner-img">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <img src="logo12.png" alt="Logo Projecte" class="banner-logo" style="max-height: 80px; margin-bottom: 1rem;">
+      <h1>Network Segmentation Using VLANs</h1>
+    </div>
+  </section>
 
-    <!-- Contingut principal amb marges -->
+  <div class="main-wrapper">
     <main>
-      <article>
-        <header><h2>SPA lleugera</h2></header>
-        <p>
-          Aplicació amb components simples i interaccions en JS, enfocada a rendiment i claredat.
-          S’han evitat dependències pesades i s’ha mantingut la semàntica.
-        </p>
-        <aside>
-          <h3>Característiques</h3>
-          <p>Rutes simulades, estat mínim i integració amb formularis.</p>
-        </aside>
-        <footer>
-          <a href="index.html#projecte2">Torna a la pàgina principal</a>
-        </footer>
-      </article>
+
+      <section class="projecte-bloc">
+        <img src="descarga.jfif" alt="VLAN Overview" class="projecte-detall-img">
+        <div class="projecte-detall-text">
+          <h2>Overview</h2>
+          <p>
+            The goal was to divide a single physical network into multiple logical segments to improve security, performance, and administrative control.
+          </p>
+          <h3>Technologies</h3>
+          <p>
+            Managed Switches, Router for Inter-VLAN routing, Access Control Lists (ACLs), and Wireshark for traffic analysis.
+          </p>
+        </div>
+      </section>
+
+      <section class="projecte-bloc invertit">
+        <img src="3.jpg" alt="VLAN Configuration" class="projecte-detall-img">
+        <div class="projecte-detall-text">
+          <h2>Development</h2>
+          <p>
+            Three VLANs were created: Students (10), Teachers (20), and Administration (30). Inter‑VLAN routing was configured, but strict ACLs were applied: Students could only access the internet, while Admin had full access.
+          </p>
+          <h3>Verification Tests</h3>
+          <ul>
+            <li>Connectivity tests using Ping & Traceroute</li>
+            <li>File-sharing access restrictions</li>
+            <li>Broadcast traffic analysis with Wireshark</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="projecte-bloc">
+        <img src="8.jpg" alt="Security Testing" class="projecte-detall-img">
+        <div class="projecte-detall-text">
+          <h2>Purpose</h2>
+          <p>
+            Students learn how segmentation reduces attack surfaces and prevents unauthorized lateral movement between sensitive network areas.
+          </p>
+          <h3>Summary</h3>
+          <ul>
+            <li>Created 3 distinct VLANs (10, 20, 30)</li>
+            <li>Isolated segments with strict ACLs</li>
+            <li>Demonstrated secure network segmentation</li>
+          </ul>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="index.html" class="btn-primary">← Tornar als projectes</a>
+      </div>
+
     </main>
   </div>
 
-<!-- Peu de pàgina -->
-<footer>
-  <p>
-    Dissenyat per Marc amb ajuda de 
-    <img src="ff.png" alt="Logo de Copilot" class="footer-logo" /> Copilot
-  </p>
-</footer>
+  <footer>
+    <p>
+      Dissenyat per Marc amb ajuda de
+      <img src="ff.png" alt="Logo de Copilot" class="footer-logo" /> Copilot
+    </p>
+  </footer>
 
+  <div class="menu-overlay"></div>
+  <script src="script.js"></script>
+
+</body>
+</html>

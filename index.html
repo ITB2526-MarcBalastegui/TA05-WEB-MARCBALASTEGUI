@@ -3,195 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pàgina principal</title>
+  <title>Projectes</title>
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <!-- Botó menú hamburguesa -->
+
   <button class="hamburger" aria-label="Obrir menú">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <!-- Barra superior amb logo i títol -->
-  <nav>
+  <section class="menu-lateral">
+    <header>
+      <h2>Menú</h2>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="inici.html">Inici</a></li>
+        <li><a href="index.html" class="active">Projectes</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <nav class="top-nav">
     <header class="site-header">
       <img src="logo.png" alt="Logo del portafolis" class="logo" />
       <h1>Portafolis</h1>
     </header>
   </nav>
-<!--Banner-->
-<section class="project-banner">
-  <img src="unnamed (2).jpg" alt="Banner del projecte" class="banner-img">
-  <div class="banner-overlay"></div>
 
-  <div class="banner-content">
+  <section class="project-banner">
+    <img src="1.jpg" alt="Banner del projecte" class="banner-img">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <h1>Projectes</h1>
+    </div>
+  </section>
 
-    <h1>Projectes</h1>
-  </div>
-</section>
-  <!-- Contenidor principal: menú lateral + contingut -->
   <div class="main-wrapper">
-    <!-- Menú lateral -->
-    <section class="menu-lateral">
-      <header><h2>Menú</h2></header>
-      <nav>
-        <ul>
-          <li><a href="index.html" aria-current="page">Inici</a></li>
-          <li><a href="contacte.html">Contacte</a></li>
-        </ul>
-      </nav>
-    </section>
+    <main>
 
-    <!-- Contingut principal -->
-<main>
+      <a href="projecte-a.html" class="project-card-link">
+        <div class="project-card" id="projecte1">
+          <img src="1.jpg" alt="QuantumShield IDS" class="project-card-img" />
+          <div class="card-content">
+            <h2>Basic Firewall Deployment with pfSense</h2>
+            <p>This project teaches the fundamentals of network perimeter security and how firewalls enforce organizational policies.</p>
+            <aside>Project 1</aside>
+            <footer>27/1/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 1 -->
-  <a href="projecte-a.html" class="project-card-link">
-    <div class="project-card" id="projecte1">
-      <img src="1.png" alt="QuantumShield IDS" class="project-card-img" />
-      <div class="card-content">
-        <h2>QuantumShield IDS</h2>
-        <p>Sistema de detección de intrusiones que usa algoritmos cuánticos para acelerar la correlación de eventos y reducir falsos positivos.</p>
-        <aside>Proyecto 1</aside>
-        <footer>27/1/25</footer>
-      </div>
-    </div>
-  </a>
+      <a href="projecte-b.html" class="project-card-link">
+        <div class="project-card" id="projecte2">
+          <img src="2.jpg" alt="Adaptive Mesh ZeroTrust Fabric" class="project-card-img" />
+          <div class="card-content">
+            <h2>Network Segmentation Using VLANs</h2>
+            <p>Students learn how segmentation reduces attack surfaces and prevents unauthorized lateral movement.</p>
+            <aside>Project 2</aside>
+            <footer>22/3/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 2 -->
-  <a href="projecte-b.html" class="project-card-link">
-    <div class="project-card" id="projecte2">
-      <img src="2.png" alt="Adaptive Mesh ZeroTrust Fabric" class="project-card-img" />
-      <div class="card-content">
-        <h2>Adaptive Mesh ZeroTrust Fabric</h2>
-        <p>Arquitectura Zero Trust distribuida que reconfigura dinámicamente rutas de red según riesgo, identidad y comportamiento del usuario.</p>
-        <aside>Proyecto 2</aside>
-        <footer>22/3/25</footer>
-      </div>
-    </div>
-  </a>
+      <a href="projecte-b.html" class="project-card-link">
+        <div class="project-card" id="projecte3">
+          <img src="4.png" alt="StealthHunter Lateral Movement Analyzer" class="project-card-img" />
+          <div class="card-content">
+            <h2>Secure Remote Access with a VPN Server</h2>
+            <p>Shows how VPNs protect remote connections and prevent data interception.</p>
+            <aside>Project 3</aside>
+            <footer>8/4/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 3 -->
-  <a href="projecte-b.html" class="project-card-link">
-    <div class="project-card" id="projecte3">
-      <img src="3.png" alt="StealthHunter Lateral Movement Analyzer" class="project-card-img" />
-      <div class="card-content">
-        <h2>StealthHunter Lateral Movement Analyzer</h2>
-        <p>Motor de análisis que detecta movimientos laterales mediante grafos dinámicos y análisis de relaciones entre identidades, permisos y endpoints.</p>
-        <aside>Proyecto 3</aside>
-        <footer>8/4/25</footer>
-      </div>
-    </div>
-  </a>
+      <a href="projecte-b.html" class="project-card-link">
+        <div class="project-card" id="projecte4">
+          <img src="3.jpg" alt="Homomorphic Vault Motor" class="project-card-img" />
+          <div class="card-content">
+            <h2>Intrusion Detection with Snort</h2>
+            <p>Introduces intrusion detection, rule creation, and alert analysis.</p>
+            <aside>Project 4</aside>
+            <footer>14/7/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 4 -->
-  <a href="projecte-b.html" class="project-card-link">
-    <div class="project-card" id="projecte4">
-      <img src="4.png" alt="Homomorphic Vault Motor" class="project-card-img" />
-      <div class="card-content">
-        <h2>Homomorphic Vault Motor</h2>
-        <p>Plataforma de cifrado homomórfico que permite procesar datos cifrados sin descifrarlos, ideal para análisis sensibles.</p>
-        <aside>Proyecto 4</aside>
-        <footer>14/7/25</footer>
-      </div>
-    </div>
-  </a>
+      <a href="projecte-b.html" class="project-card-link">
+        <div class="project-card" id="projecte5">
+          <img src="5.png" alt="SatCom Secure Relay" class="project-card-img" />
+          <div class="card-content">
+            <h2>ARP Spoofing Attack and Mitigation Lab</h2>
+            <p>Helps students understand man‑in‑the‑middle attacks and how to prevent them.</p>
+            <aside>Project 5</aside>
+            <footer>20/7/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 5 -->
-  <a href="projecte-b.html" class="project-card-link">
-    <div class="project-card" id="projecte5">
-      <img src="5.png" alt="SatCom Secure Relay" class="project-card-img" />
-      <div class="card-content">
-        <h2>SatCom Secure Relay</h2>
-        <p>Capa de seguridad para comunicaciones satelitales con mitigación de jamming y spoofing mediante señales redundantes y firmas RF.</p>
-        <aside>Proyecto 5</aside>
-        <footer>20/7/25</footer>
-      </div>
-    </div>
-  </a>
+      <a href="projecte-b.html" class="project-card-link">
+        <div class="project-card" id="projecte6">
+          <img src="11.jpg" alt="DeepLeak Observatory" class="project-card-img" />
+          <div class="card-content">
+            <h2>Linux Server Hardening</h2>
+            <p>Teaches foundational system‑hardening techniques.</p>
+            <aside>Project 6</aside>
+            <footer>1/9/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 6 -->
-  <a href="projecte-b.html" class="project-card-link">
-    <div class="project-card" id="projecte6">
-      <img src="6.png" alt="DeepLeak Observatory" class="project-card-img" />
-      <div class="card-content">
-        <h2>DeepLeak Observatory</h2>
-        <p>Sistema que rastrea filtraciones de datos mediante fingerprinting de información y análisis de patrones en darknets distribuidas.</p>
-        <aside>Proyecto 6</aside>
-        <footer>1/9/25</footer>
-      </div>
-    </div>
-  </a>
+      <a href="projecte-b.html" class="project-card-link">
+        <div class="project-card" id="projecte7">
+          <img src="7.jpg" alt="Self-Healing Kernel" class="project-card-img" />
+          <div class="card-content">
+            <h2>Encrypted Backup System</h2>
+            <p>Shows how encryption protects data at rest and how backups are automated.</p>
+            <aside>Project 7</aside>
+            <footer>5/9/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 7 -->
-  <a href="projecte-b.html" class="project-card-link">
-    <div class="project-card" id="projecte7">
-      <img src="7.png" alt="Self-Healing Kernel" class="project-card-img" />
-      <div class="card-content">
-        <h2>Self-Healing Kernel</h2>
-        <p>Kernel modificado capaz de detectar corrupción de memoria o hooks maliciosos y restaurar su estado automáticamente.</p>
-        <aside>Proyecto 7</aside>
-        <footer>5/9/25</footer>
-      </div>
-    </div>
-  </a>
+      <a href="projecte-b.html" class="project-card-link">
+        <div class="project-card" id="projecte8">
+          <img src="8.png" alt="Predictive Threat Graph" class="project-card-img" />
+          <div class="card-content">
+            <h2>Security Monitoring with Wazuh</h2>
+            <p>Introduces SIEM concepts and real‑time monitoring.</p>
+            <aside>Project 8</aside>
+            <footer>29/9/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 8 -->
-  <a href="projecte-b.html" class="project-card-link">
-    <div class="project-card" id="projecte8">
-      <img src="8.png" alt="Predictive Threat Graph" class="project-card-img" />
-      <div class="card-content">
-        <h2>Predictive Threat Graph</h2>
-        <p>Grafo de amenazas que predice posibles ataques futuros basándose en patrones históricos y señales débiles.</p>
-        <aside>Proyecto 8</aside>
-        <footer>29/9/25</footer>
-      </div>
-    </div>
-  </a>
+      <a href="projecte-b.html" class="project-card-link">
+        <div class="project-card" id="projecte9">
+          <img src="9.png" alt="Secure Container Mutation Engine" class="project-card-img" />
+          <div class="card-content">
+            <h2>Secure User and Permission Management</h2>
+            <p>Teaches proper access control and auditing.</p>
+            <aside>Project 9</aside>
+            <footer>12/11/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 9 -->
-  <a href="projecte-b.html" class="project-card-link">
-    <div class="project-card" id="projecte9">
-      <img src="9.png" alt="Secure Container Mutation Engine" class="project-card-img" />
-      <div class="card-content">
-        <h2>Secure Container Mutation Engine</h2>
-        <p>Sistema que genera versiones mutadas de contenedores para evitar fingerprinting y exploits dirigidos.</p>
-        <aside>Proyecto 9</aside>
-        <footer>12/11/25</footer>
-      </div>
-    </div>
-  </a>
+      <a href="projecte-b.html" class="project-card-link">
+        <div class="project-card" id="projecte10">
+          <img src="10.png" alt="Trusted Execution Mesh" class="project-card-img" />
+          <div class="card-content">
+            <h2>Implementing Two‑Factor Authentication on Linux</h2>
+            <p>Demonstrates how MFA strengthens authentication.</p>
+            <aside>Proyecto 10</aside>
+            <footer>2/12/25</footer>
+          </div>
+        </div>
+      </a>
 
-  <!-- TARGETA 10 -->
-  <a href="projecte-b.html" class="project-card-link">
-    <div class="project-card" id="projecte10">
-      <img src="10.png" alt="Trusted Execution Mesh" class="project-card-img" />
-      <div class="card-content">
-        <h2>Trusted Execution Mesh</h2>
-        <p>Infraestructura que combina enclaves seguros (SGX/SEV) para ejecutar procesos críticos de forma distribuida y verificable.</p>
-        <aside>Proyecto 10</aside>
-        <footer>2/12/25</footer>
-      </div>
-    </div>
-  </a>
-
-</main>
-
-
+    </main>
   </div>
 
-<!-- Peu de pàgina -->
-<footer>
-  <p>
-    Dissenyat per Marc amb ajuda de
-    <img src="ff.png" alt="Logo de Copilot" class="footer-logo" /> Copilot
-  </p>
-  <p class="footer-copy">Tots els drets reservats</p>
-</footer>
+  <footer>
+    <p>
+      Made by Marc with help from
+      <img src="ff.png" alt="Logo de Copilot" class="footer-logo" /> Copilot
+    </p>
+  </footer>
 
-  <!-- Script per al menú hamburguesa -->
+<div class="menu-overlay"></div>
   <script src="script.js"></script>
 </body>
 </html>

@@ -8,78 +8,63 @@
 </head>
 <body>
 
-  <!-- Botó menú hamburguesa -->
   <button class="hamburger" aria-label="Obrir menú">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <!-- Barra superior -->
-  <nav>
+  <section class="menu-lateral">
+    <header><h2>Menú</h2></header>
+    <nav>
+      <ul>
+        <li><a href="inici.html">Inici</a></li>
+        <li><a href="index.html" class="active">Projectes</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <nav class="top-nav">
     <header class="site-header">
-      <img src="logo.png" alt="Logo del portafolis" class="logo" />
+      <img src="logo.png" alt="Logo" class="logo" />
       <h1>Portafolis</h1>
     </header>
   </nav>
 
-  <!-- BANNER DEL PROJECTE -->
-<section class="project-banner">
-  <img src="banners/banner-1.jpg" alt="Banner del projecte" class="banner-img">
-  <div class="banner-overlay"></div>
+  <section class="project-banner">
+    <img src="1.jpg" alt="Banner" class="banner-img">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <img src="logo12.png" alt="Logo Projecte" class="banner-logo" style="max-height: 80px; margin-bottom: 1rem;">
+      <h1>Basic Firewall Deployment with pfSense</h1>
+    </div>
+  </section>
 
-  <div class="banner-content">
-    <img src="logo12.png" alt="Logo del projecte" class="banner-logo">
-    <h1>QuantumShield IDS</h1>
-  </div>
-</section>
-
-
-
-  <!-- Contenidor principal -->
   <div class="main-wrapper">
-
-    <!-- Menú lateral -->
-    <section class="menu-lateral">
-      <header><h2>Menú</h2></header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Inici</a></li>
-          <li><a href="contacte.html">Contacte</a></li>
-        </ul>
-      </nav>
-    </section>
-
-    <!-- CONTINGUT DEL PROJECTE -->
     <main>
 
-      <!-- BLOC 1 -->
       <section class="projecte-bloc">
-        <img src="1.png" alt="Imatge del projecte" class="projecte-detall-img">
-
+        <img src="10.png" alt="Overview" class="projecte-detall-img">
         <div class="projecte-detall-text">
           <h2>Overview</h2>
-          <p>
-            QuantumShield IDS is an intrusion detection system that leverages quantum‑inspired algorithms to accelerate event correlation and dramatically reduce false positives.
+          <p>This project focused on deploying a pfSense firewall to secure a small virtual network and applying fundamental filtering rules to control inbound and outbound traffic.
           </p>
-
           <h3>Technologies</h3>
           <p>
-            Quantum‑inspired correlation engine, real‑time event processing, adaptive anomaly detection.
+            A pfSense firewall was deployed, configured, and tested to control network traffic and block unsafe connections.
           </p>
         </div>
       </section>
 
-      <!-- BLOC 2 -->
       <section class="projecte-bloc invertit">
-        <img src="2.png" alt="Imatge del projecte" class="projecte-detall-img">
-
+        <img src="6.jpg" alt="Architecture" class="projecte-detall-img">
         <div class="projecte-detall-text">
-          <h2>System Architecture</h2>
+          <h2>Development</h2>
           <p>
-            The system is built around a distributed analysis engine capable of correlating thousands of events simultaneously.
+            The project began by installing pfSense on a virtual machine configured with two interfaces: WAN (external) and LAN (internal). After the initial setup wizard, the firewall was updated and secured with HTTPS access.
+A set of rules was created to block unnecessary ports such as Telnet, FTP, and SMB from external networks.
           </p>
-
           <h3>Key Features</h3>
           <ul>
             <li>Parallel event correlation</li>
@@ -89,16 +74,14 @@
         </div>
       </section>
 
-      <!-- BLOC 3 -->
       <section class="projecte-bloc">
-        <img src="3.png" alt="Imatge del projecte" class="projecte-detall-img">
-
+        <img src="7.jpg" alt="Performance" class="projecte-detall-img">
         <div class="projecte-detall-text">
-          <h2>Performance & Optimization</h2>
+          <h2>Purpose</h2>
           <p>
-            QuantumShield IDS integrates memory‑efficient pipelines and multi‑stage processing to ensure stable performance in high‑traffic environments.
+            This project teaches the fundamentals of network perimeter security and how firewalls enforce organizational policies.
+              A pfSense firewall was deployed, configured, and tested to control network traffic and block unsafe connections.
           </p>
-
           <h3>Enhancements</h3>
           <ul>
             <li>Parallel processing pipelines</li>
@@ -108,15 +91,13 @@
         </div>
       </section>
 
-      <!-- Enllaç de retorn -->
-      <footer class="projecte-retorn">
-        <a href="index.html#projecte1">Torna a la pàgina principal</a>
-      </footer>
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="index.html" class="btn-primary">← Tornar als projectes</a>
+      </div>
 
     </main>
   </div>
 
-  <!-- Peu de pàgina -->
   <footer>
     <p>
       Dissenyat per Marc amb ajuda de
@@ -124,6 +105,8 @@
     </p>
   </footer>
 
+  <div class="menu-overlay"></div>
   <script src="script.js"></script>
+
 </body>
 </html>

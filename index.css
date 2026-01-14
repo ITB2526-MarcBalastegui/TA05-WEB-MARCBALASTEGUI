@@ -1,6 +1,6 @@
-/* ------------------------------ */
-/* FONT PERSONALITZADA            */
-/* ------------------------------ */
+/* =========================================
+   1. FONTS Y BASE
+   ========================================= */
 @font-face {
   font-family: "ZTNature";
   src: url("fonts/ZTNature-Medium.ttf") format("truetype");
@@ -8,37 +8,37 @@
   font-style: normal;
 }
 
-/* ------------------------------ */
-/* ESTILS GENERALS                */
-/* ------------------------------ */
 html {
   height: 100%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
   margin: 0;
   font-family: "ZTNature", Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  background-color: #f9f9f9;
+  background-color: #f0f2f5;
   color: #333;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* ------------------------------ */
-/* LAYOUT GENERAL                 */
-/* ------------------------------ */
+/* =========================================
+   2. LAYOUT Y CABECERA SUPERIOR
+   ========================================= */
 .main-wrapper {
   display: flex;
   flex: 1;
-  transition: margin-left 0.3s ease;
+  flex-direction: column;
+  width: 100%;
 }
 
-/* ------------------------------ */
-/* BARRA SUPERIOR                 */
-/* ------------------------------ */
-nav {
+nav.top-nav {
   background-color: #000;
   color: #fff;
   padding: 0.75rem 1rem;
@@ -49,6 +49,7 @@ nav {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  padding-left: 40px;
 }
 
 .site-header .logo {
@@ -56,24 +57,29 @@ nav {
   width: auto;
 }
 
-nav header h1 {
+.site-header h1 {
   margin: 0;
   font-size: 1.8rem;
+  font-weight: normal;
 }
 
-/* ------------------------------ */
-/* MENÚ LATERAL                   */
-/* ------------------------------ */
+/* =========================================
+   3. MENÚ LATERAL
+   ========================================= */
 .menu-lateral {
   position: fixed;
   top: 0;
-  left: -220px;
-  width: 200px;
-  height: 100%;
-  background-color: #111;
-  padding: 1rem;
-  transition: left 0.3s ease;
-  z-index: 999;
+  left: -280px;
+  width: 280px;
+  height: 100vh;
+  background: #1a1a1a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 2000;
+  box-shadow: 4px 0 15px rgba(0,0,0,0.6);
+  padding-top: 80px;
 }
 
 .menu-lateral.active {
@@ -81,8 +87,19 @@ nav header h1 {
 }
 
 .menu-lateral header h2 {
-  margin-top: 3rem;
+  margin: 0;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  font-size: 1.8rem;
+  font-weight: normal;
+  text-align: center;
+  border-bottom: 1px solid #333;
   color: #fff;
+}
+
+.menu-lateral nav {
+  padding: 1rem 0;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .menu-lateral ul {
@@ -91,474 +108,375 @@ nav header h1 {
   margin: 0;
 }
 
-.menu-lateral ul li {
-  margin: 0.75rem 0;
+.menu-lateral ul li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.menu-lateral ul li a {
-  text-decoration: none;
+.menu-lateral ul li a:hover {
+  background: #252525;
   color: #fff;
+  border-left-color: #ffcc00;
+  padding-left: 2rem;
+}
+
+.menu-lateral ul li a.active {
+  background: #252525;
+  color: #fff;
+  border-left-color: #ffcc00;
   font-weight: bold;
 }
 
-.menu-lateral ul li a[aria-current="page"] {
-  border-bottom: 2px solid #ffcc00;
+/* Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
 }
 
-/* Quan el menú està obert */
-body.menu-visible .main-wrapper {
-  margin-left: 200px;
+.menu-overlay.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* ------------------------------ */
-/* BOTÓ HAMBURGUESA               */
-/* ------------------------------ */
+/* =========================================
+   4. BOTÓ HAMBURGUESA
+   ========================================= */
 .hamburger {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  width: 30px;
-  height: 24px;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 6px;
-  background: none;
+  gap: 5px;
+  background-color: #000;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 2100;
 }
 
 .hamburger span {
   display: block;
-  width: 100%;
+  width: 25px;
   height: 3px;
   background-color: #fff;
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
-}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translateY(6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translateY(-6px); }
 
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
-}
-
-/* ------------------------------ */
-/* CONTINGUT PRINCIPAL            */
-/* ------------------------------ */
-main {
-  flex: 1;
-  padding: 1.5rem;
-}
-
-main section,
-main article {
-  background-color: #fff;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-main header h2 {
-  margin-top: 0;
-  color: #000;
-}
-
-/* ------------------------------ */
-/* PROJECTES (PÀGINA PRINCIPAL)   */
-/* ------------------------------ */
-.projecte {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  align-items: flex-start;
-  background-color: #fff;
-  padding: 1rem 1.25rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-left: 1rem;
-
-  /* Animació entrada */
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
-  transform-origin: left center;
-}
-
-.projecte.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.projecte.hovered {
-  transform: scale(1.015);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-/* Imatge dels projectes */
-.projecte-img {
-  width: 200px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 4px;
-  flex-shrink: 0;
-}
-
-/* ------------------------------ */
-/* PÀGINA DE DETALL DEL PROJECTE  */
-/* ------------------------------ */
-/* BLOC DEL PROJECTE — FORMAT UNIFICAT */
-.projecte-bloc {
-  display: flex;
-  align-items: stretch;     /* 👈 fa que la imatge i el text tinguin la mateixa alçada */
-  gap: 2rem;
-  background: #fff;
-  padding: 0;               /* 👈 la imatge toca el marge del rectangle */
-  border-radius: 10px;
-  overflow: hidden;         /* 👈 evita que la imatge surti del rectangle */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-  margin-bottom: 3rem;
-  min-height: 300px;        /* 👈 alçada fixa per a tots els blocs */
-}
-
-/* Alternança: imatge a la dreta */
-.projecte-bloc.invertit {
-  flex-direction: row-reverse;
-}
-
-/* IMATGE — SEMPRE IGUAL, SEMPRE A MIDA */
-.projecte-detall-img {
-  width: 40%;               /* 👈 totes les imatges mateixa amplada */
-  height: 100%;             /* 👈 ocupa tota l’alçada del bloc */
-  object-fit: cover;        /* 👈 retalla sense deformar */
-  display: block;
-}
-
-/* TEXT — SEMPRE IGUAL */
-.projecte-detall-text {
-  flex: 1;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* IMATGE A MIDA COMPLETA */
-.projecte-detall-img {
-  width: 45%;              /* ocupa gairebé la meitat del bloc */
-  height: 100%;            /* ocupa tota l’alçada del rectangle */
-  object-fit: cover;       /* retalla sense deformar */
-  display: block;
-}
-
-/* TEXT DEL PROJECTE */
-.projecte-detall-text {
-  flex: 1;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.projecte-detall-text h2 {
-  margin-top: 0;
-  font-size: 1.8rem;
-}
-
-.projecte-detall-text p,
-.projecte-detall-text ul {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .projecte-bloc,
-  .projecte-bloc.invertit {
-    flex-direction: column;
-    min-height: auto;
-  }
-
-  .projecte-detall-img {
-    width: 100%;
-    height: 220px;
-  }
-
-  .projecte-detall-text {
-    padding: 1.5rem;
-    text-align: center;
-  }
-}
-
-
-/* ------------------------------ */
-/* PEU DE PÀGINA                  */
-/* ------------------------------ */
-body > footer {
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  margin-top: auto;
-}
-
-.footer-logo {
-  height: 24px;
-  width: auto;
-  vertical-align: middle;
-  margin-top: 2px; /* 👈 baixa la imatge lleugerament */
-}
-
-
-.footer-copy {
-  font-size: 0.85rem;
-  color: #aaa;
-}
-
-/* ------------------------------ */
-/* RESPONSIVE                     */
-/* ------------------------------ */
-@media (max-width: 768px) {
-  .main-wrapper {
-    flex-direction: column;
-  }
-
-  .menu-lateral {
-    width: 100%;
-    min-height: auto;
-    position: relative;
-    left: 0;
-  }
-
-  .projecte-bloc {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .projecte-detall-img {
-    width: 100%;
-    height: auto;
-    max-height: 250px;
-  }
-}
-/* ANIMACIÓ D’ENTRADA DELS BLOCS */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.projecte-bloc {
-  opacity: 0;
-  animation: fadeSlideUp 0.8s ease forwards;
-}
-
-/* Retard escalonat */
-.projecte-bloc:nth-child(1) { animation-delay: 0.1s; }
-.projecte-bloc:nth-child(2) { animation-delay: 0.3s; }
-.projecte-bloc:nth-child(3) { animation-delay: 0.5s; }
-
-/* ANIMACIÓ DE LA IMATGE (ZOOM SUAU) */
-.projecte-detall-img {
-  transition: transform 0.4s ease;
-}
-
-.projecte-bloc:hover .projecte-detall-img {
-  transform: scale(1.05);
-}
-.projecte-detall-text {
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.projecte-bloc:hover .projecte-detall-text {
-  transform: translateX(5px);
-  opacity: 0.95;
-}
-
-
-
-
-
-@media (max-width: 768px) {
-  .projecte-bloc,
-  .projecte-bloc.invertit {
-    flex-direction: column;
-    min-height: auto;
-  }
-
-  .projecte-detall-img {
-    width: 100%;
-    height: 220px;
-  }
-}
-/* BANNER DEL PROJECTE AMB IMATGE HTML */
+/* =========================================
+   5. BANNER HERO
+   ========================================= */
 .project-banner {
   position: relative;
   width: 100%;
-  height: 280px; /* pots pujar-ho si vols més impacte */
+  height: 280px;
   overflow: hidden;
   margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #000;
 }
 
-/* Imatge del banner */
 .banner-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* fa que la imatge ocupi tot el banner */
+  object-fit: cover;
   z-index: 1;
+  opacity: 0.6;
 }
 
-/* Capa fosca */
-.banner-overlay {
+.banner-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+.project-banner h1 {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  margin: 0;
+}
+
+/* =========================================
+   6. CONTENIDOR PRINCIPAL
+   ========================================= */
+main {
+  flex: 1;
+  padding: 2rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* =========================================
+   7. PÀGINA D'INICI (Featured)
+   ========================================= */
+.featured-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: #111;
+}
+
+.featured-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 350px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.featured-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.80); /* foscor ajustable */
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.featured-card:hover .featured-img { transform: scale(1.05); }
+
+.featured-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
   z-index: 2;
 }
 
-/* Títol */
-.project-banner h1 {
+.featured-content {
   position: relative;
   z-index: 3;
-  color: #fff;
-  font-size: 2.8rem;
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
-}
-/* CONTENIDOR DEL TÍTOL + LOGO */
-.banner-content {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 1rem; /* espai entre logo i títol */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
 }
 
-/* LOGO DEL BANNER */
-.banner-logo {
-  height: 60px;        /* ajusta la mida del logo */
-  width: auto;
-  filter: brightness(0) invert(1); /* opcional: fa el logo blanc si és fosc */
-}
-
-/* TÍTOL */
-.project-banner h1 {
-  margin: 0;
-  color: #fff;
-  font-size: 2.8rem;
-  font-weight: bold;
-}
-
-/* TARGETA HORIZONTAL */
-.project-card {
-  display: flex;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 160px; /* alçada uniforme */
-  margin-bottom: 2rem; /* 👈 marge entre targetes */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-
-  opacity: 0; /* per animació */
-  transform: translateY(20px);
-  animation: fadeSlideUp 0.8s ease forwards;
-}
-
-/* Retard escalonat */
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-.project-card:nth-child(4) { animation-delay: 0.4s; }
-.project-card:nth-child(5) { animation-delay: 0.5s; }
-.project-card:nth-child(6) { animation-delay: 0.6s; }
-.project-card:nth-child(7) { animation-delay: 0.7s; }
-.project-card:nth-child(8) { animation-delay: 0.8s; }
-.project-card:nth-child(9) { animation-delay: 0.9s; }
-.project-card:nth-child(10) { animation-delay: 1s; }
-
-/* ANIMACIÓ */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* IMATGE PETITA A L’ESQUERRA */
-.project-card-img {
-  width: 180px;      /* amplada fixa */
-  height: 100%;      /* ocupa tota l’alçada */
-  object-fit: cover; /* cobreix sense deformar */
-  display: block;
-  transition: transform 0.4s ease; /* animació hover */
-}
-
-/* ZOOM SUAU EN HOVER */
-.project-card:hover .project-card-img {
-  transform: scale(1.05);
-}
-
-/* CONTINGUT A LA DRETA */
-.card-content {
-  flex: 1;
-  padding: 1.2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.card-content h2 {
+.featured-content h3 {
   margin: 0 0 0.5rem 0;
-  font-size: 1.4rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffcc00;
 }
 
-.card-content p {
-  margin: 0 0 0.5rem 0;
-  line-height: 1.4;
+.featured-content p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
 }
 
-.card-content aside,
-.card-content footer {
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-/* L’enllaç gegant que envolta la targeta */
+/* =========================================
+   8. TARJETAS DE PROYECTOS (Grid)
+   ========================================= */
 .project-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
 }
 
-/* Evitar que canviï color en hover */
-.project-card-link:hover {
-  text-decoration: none;
-  color: inherit;
+.project-card {
+  display: flex;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 180px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.project-card-img {
+  width: 240px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-content h2 {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.5rem;
+  color: #111;
+}
+
+.card-content p { margin: 0 0 1rem 0; line-height: 1.5; color: #555; }
+.card-content footer { font-size: 0.85rem; color: #999; margin-top: auto; }
+
+/* =========================================
+   9. SECCIÓ INTRO (ABOUT)
+   ========================================= */
+.intro-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.intro-section h1 { font-size: 2.5rem; margin: 0 0 0.5rem 0; color: #111; }
+.intro-subtitle { font-size: 1.2rem; color: #ffcc00; font-weight: bold; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+.intro-text { font-size: 1.1rem; color: #555; max-width: 700px; margin: 0 auto 2rem auto; line-height: 1.8; }
+
+.intro-actions { display: flex; justify-content: center; gap: 1rem; }
+.btn-primary, .btn-secondary { padding: 0.8rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; }
+.btn-primary { background-color: #111; color: #fff; border: 2px solid #111; }
+.btn-primary:hover { background-color: #333; border-color: #333; }
+.btn-secondary { background-color: transparent; color: #111; border: 2px solid #ccc; }
+.btn-secondary:hover { border-color: #111; background-color: #fff; }
+
+/* =========================================
+   10. FOOTER
+   ========================================= */
+body > footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: auto;
+}
+.footer-logo { height: 24px; width: auto; vertical-align: middle; margin: 0 5px; }
+.footer-copy { font-size: 0.9rem; color: #666; margin-top: 1rem; }
+
+/* =========================================
+   11. BLOCS DE DETALL DEL PROJECTE (ALTERNANTS)
+   Aquesta part és la que et faltava!
+   ========================================= */
+.projecte-bloc {
+  display: flex;
+  align-items: center; /* Centrar verticalment */
+  gap: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 3rem;
+  min-height: 350px;
+}
+
+/* La classe clau per invertir l'ordre: Text Esquerra, Foto Dreta */
+.projecte-bloc.invertit {
+  flex-direction: row-reverse;
+}
+
+.projecte-detall-img {
+  width: 50%; /* La imatge ocupa la meitat */
+  height: 100%;
+  min-height: 350px; /* Alçada mínima per assegurar presència */
+  object-fit: cover;
+  display: block;
+}
+
+.projecte-detall-text {
+  flex: 1; /* El text ocupa l'altra meitat */
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projecte-detall-text h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  color: #111;
+  border-bottom: 2px solid #ffcc00; /* Detall groc */
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+/* =========================================
+   12. RESPONSIVE (Mòbil)
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* Menú lateral */
+  .menu-lateral { width: 100%; left: -100%; }
+
+  /* Ajustos generals */
+  .project-banner h1 { font-size: 2.2rem; }
+  .featured-card { height: 250px; }
+
+  /* Tarjetas Projectes Index */
+  .project-card { flex-direction: column; height: auto; }
+  .project-card-img { width: 100%; height: 180px; }
+  .card-content { padding: 1.5rem; }
+
+  /* BLOCS DETALL (Projecte-a) */
+  /* En mòbil, traiem l'efecte invertit i posem foto a dalt sempre */
+  .projecte-bloc,
+  .projecte-bloc.invertit {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .projecte-detall-img {
+    width: 100%;
+    height: 250px;
+  }
+
+  .projecte-detall-text {
+    padding: 1.5rem;
+  }
 }
